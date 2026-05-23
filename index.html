@@ -69,10 +69,11 @@
       const pago = document.getElementById("pago").value;
       const obs = document.getElementById("obs").value;
 
-      // Servicios como texto
+      // Servicios en una sola línea
       const luz = document.getElementById("luz").checked ? "Luz: Sí" : "Luz: No";
       const agua = document.getElementById("agua").checked ? "Agua: Sí" : "Agua: No";
       const basura = document.getElementById("basura").checked ? "Basura: Sí" : "Basura: No";
+      const serviciosLinea = luz + "     " + agua + "     " + basura;
 
       const { jsPDF } = window.jspdf;
       const doc = new jsPDF();
@@ -90,7 +91,7 @@
       doc.setFontSize(16);
       doc.text("RECIBO DE PAGO DE ALQUILER", 50, 55);
 
-      // Datos
+      // Subtítulos en negrita
       doc.setFont("helvetica", "bold");
       doc.setFontSize(12);
       doc.text("Fecha:", 20, 70);
@@ -103,7 +104,7 @@
       doc.text("Observaciones:", 20, 150);
       doc.text("Firma:", 20, 180);
 
-      // Valores
+      // Valores normales
       doc.setFont("helvetica", "normal");
       doc.text(fecha, 60, 70);
       doc.text(inquilino, 60, 80);
@@ -111,9 +112,7 @@
       doc.text("Q" + monto, 60, 100);
       doc.text("Q" + total, 60, 110);
       doc.text(pago, 60, 120);
-      doc.text(luz, 60, 130);
-      doc.text(agua, 60, 140);
-      doc.text(basura, 60, 150);
+      doc.text(serviciosLinea, 60, 130);
       doc.text(obs, 60, 160);
 
       doc.text("_____________________", 60, 180);
@@ -123,4 +122,3 @@
   </script>
 </body>
 </html>
-
