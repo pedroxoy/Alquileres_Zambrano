@@ -102,7 +102,7 @@
       doc.text("Forma de pago:", 20, 120);
       doc.text("Servicios incluidos:", 20, 130);
       doc.text("Observaciones:", 20, 150);
-      doc.text("Firma:", 20, 180);
+     
 
       // Valores normales
       doc.setFont("helvetica", "normal");
@@ -115,7 +115,6 @@
       doc.text(serviciosLinea, 60, 130);
       doc.text(obs, 60, 160);
 
-      doc.text("_____________________", 60, 180);
 
       doc.save("Recibo_" + inquilino + "_" + fecha + ".pdf");
     });
